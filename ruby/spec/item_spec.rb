@@ -26,6 +26,14 @@ describe Item do
       expect(cheese_out_sell.quality).to eq 18
     end
 
+    it 'can decrease quality if out of sell_in period until it reaches 0' do
+      11.times do
+        cheese_out_sell.ageing
+        cheese_out_sell.update_item_quality
+      end
+      expect(cheese_out_sell.quality).to eq 0
+    end
+
   end
 
   it 'do not change the quality for aging Sulfures' do

@@ -32,7 +32,7 @@ private
   end
 
   def update_item_quality_out_sell
-      @quality -= 2
+      @quality -= 2 if @quality >= 2
   end
 
 end
