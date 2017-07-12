@@ -8,6 +8,7 @@ class Item
   end
 
   def update_item_quality
+    return @quality if @quality == 50
     @quality += 1 if @sell_in < 11
     @quality += 1 if @sell_in < 6
   end
