@@ -24,10 +24,12 @@ private
   def update_item_quality_high
     if @sell_in > 0 && @name != "Sulfures"
       return @quality if @quality == 50
+      @quality += 1
       @quality += 1 if @sell_in < 11
       @quality += 1 if @sell_in < 6
     end
   end
+
 
 
 end
