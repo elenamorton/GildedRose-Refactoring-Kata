@@ -7,7 +7,14 @@ class Item
     @quality = quality
   end
 
+  def update_item_quality
+    @quality += 1 if @sell_in < 11
+    @quality += 1 if @sell_in < 6
+  end
+
   def to_s()
     "#{@name}, #{@sell_in}, #{@quality}"
   end
+
+
 end
