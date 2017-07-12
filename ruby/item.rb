@@ -8,7 +8,8 @@ class Item
   end
 
   def update_item_quality
-    update_item_quality_high
+    update_item_quality_in_sell if @sell_in > 0
+    update_item_quality_out_sell if @sell_in <= 0
   end
 
   def ageing
@@ -21,8 +22,8 @@ class Item
 
 private
 
-  def update_item_quality_high
-    if @sell_in > 0 && @name != "Sulfures"
+  def update_item_quality_in_sell
+    if @name != "Sulfures"
       return @quality if @quality == 50
       @quality += 1
       @quality += 1 if @sell_in < 11
@@ -30,6 +31,8 @@ private
     end
   end
 
-
+  def update_item_quality_out_sell
+      @quality -= 2
+  end
 
 end
