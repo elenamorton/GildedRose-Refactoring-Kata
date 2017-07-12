@@ -8,13 +8,25 @@ class Item
   end
 
   def update_item_quality
-    return @quality if @quality == 50
-    @quality += 1 if @sell_in < 11
-    @quality += 1 if @sell_in < 6
+    update_item_quality_high
+  end
+
+  def ageing
+    @sell_in -= 1
   end
 
   def to_s()
     "#{@name}, #{@sell_in}, #{@quality}"
+  end
+
+private
+
+  def update_item_quality_high
+    if sell_in > 0
+      return @quality if @quality == 50
+      @quality += 1 if @sell_in < 11
+      @quality += 1 if @sell_in < 6
+    end
   end
 
 
